@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlmacenWSService } from '../../services/almacen-ws.service';
 
 @Component({
   selector: 'app-categoria',
@@ -6,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private Categoria: AlmacenWSService) {
+    this.Categoria.getCategoria().subscribe(data => {
+      console.log(data);
+    });
+  }
 
   ngOnInit(): void {
   }
-
 }

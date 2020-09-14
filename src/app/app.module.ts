@@ -14,20 +14,28 @@ import { HomeComponent } from './components/home/home.component';
 // Peticiones
 import { HttpClientModule } from '@angular/common/http';
 
+
+// Servicios
+import { AlmacenWSService } from './services/almacen-ws.service';
+import { LoginComponent } from './components/login/login.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     CategoriaComponent,
     ProductoComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    AlmacenWSService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
