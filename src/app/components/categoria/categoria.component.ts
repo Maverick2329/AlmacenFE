@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlmacenWSService } from '../../services/almacen-ws.service';
+import { Response } from './../../models/response';
+import { Categoria } from '../../models/categoria';
 
 @Component({
   selector: 'app-categoria',
@@ -7,12 +9,21 @@ import { AlmacenWSService } from '../../services/almacen-ws.service';
 })
 export class CategoriaComponent implements OnInit {
 
+  public lista: Categoria[];
+  public columnas: string[] = ['#', 'Nombre', 'Descripción', 'Opciones'];
   constructor(private Categoria: AlmacenWSService) {
-    this.Categoria.getCategoria().subscribe(data => {
-      console.log(data);
-    });
+    // this.Categoria.getCategoria().subscribe(data => {
+    //   console.log(data);
+    // });
   }
 
   ngOnInit(): void {
+    this.getCategoria();
+  }
+
+  getCategoria(){
+    this.Categoria.getCategoria().subscribe(data => {
+      this.lista = data.data;
+    });
   }
 }

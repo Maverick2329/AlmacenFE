@@ -1,31 +1,24 @@
-<p>categoria works!</p>
-<table class="table">
+<div>
+ <h1>Categoria</h1><button class="btn btn-primary">Nueva Categoria</button>
+</div>
+<br/>
+<div>    
+  <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Categoria</th>
-        <th scope="col">Descripción</th>
-        <th scope="col">Opciones</th>
+        <th scope="col" *ngFor="let column of columnas" style="text-align: center">{{ column }}</th>        
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
+      <tr *ngFor="let element of lista; let e = index">
+        <th scope="row">{{ e + 1 }}</th>
+        <td>{{ element.nombreCategoria }}</td>
+        <td>{{ element.descripcionCategoria }}</td>
+        <td> 
+          <button class="btn btn-warning"> Editar </button> |
+          <button class="btn btn-danger"> Eliminar </button>
+        </td>
+      </tr>      
     </tbody>
   </table>
+</div>

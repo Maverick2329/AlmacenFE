@@ -21,6 +21,7 @@ export class AlmacenWSService {
   urlLogin: string = 'https://localhost:44304/api/usuario/login';
 
   private usuarioSubject: BehaviorSubject<Usuario>;
+  public usuario: Observable<Usuario>;
 
   public get usuarioData(): Usuario {
     return this.usuarioSubject.value;
@@ -29,6 +30,7 @@ export class AlmacenWSService {
   constructor(private http: HttpClient) {
     console.log('Servicio Listo!!!');
     this.usuarioSubject = new BehaviorSubject<Usuario>(JSON.parse(localStorage.getItem('usuario')));
+    this.usuario = this.usuarioSubject.asObservable();
   }
 
   login(email: string, password: string): Observable<Response>{
