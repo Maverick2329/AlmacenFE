@@ -13,6 +13,9 @@ import { ProductoComponent } from './components/producto/producto.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { DialogCategoriaComponent } from './components/dialog/dialog-categoria/dialog-categoria.component';
+import { DialogProductoComponent } from './components/dialog/dialog-producto/dialog-producto.component';
+
 
 // Peticiones
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -31,7 +34,9 @@ import { JwtInterceptor } from './secutiry/jwt.interceptor';
     ProductoComponent,
     NavbarComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    DialogCategoriaComponent,
+    DialogProductoComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +49,10 @@ import { JwtInterceptor } from './secutiry/jwt.interceptor';
     AlmacenWSService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DialogCategoriaComponent,
+    DialogProductoComponent
+  ]
 })
 export class AppModule { }
