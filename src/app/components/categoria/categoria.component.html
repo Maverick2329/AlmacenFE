@@ -1,25 +1,27 @@
 <div>
  <h1>Categoria</h1>
- <button type="button" class="btn btn-primary">Nueva Categoria</button>
+ <button mat-raised-button color="primary" (click)="openAdd()">Nueva Categoria</button>
 </div>
 <br/>
-<div>    
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col" *ngFor="let column of columnas" style="text-align: center">{{ column }}</th>        
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let element of lista; let e = index">
-        <th scope="row">{{ e + 1 }}</th>
-        <td>{{ element.nombreCategoria }}</td>
-        <td>{{ element.descripcionCategoria }}</td>
-        <td> 
-          <button class="btn btn-warning"> Editar </button> |
-          <button class="btn btn-danger"> Eliminar </button>
-        </td>
-      </tr>      
-    </tbody>
+<div>
+  <table mat-table [dataSource]="lista" class="mat-elevation-z8">
+    <ng-container matColumnDef="No">
+      <th mat-header-cell *matHeaderCellDef> # </th>
+      <td mat-cell *matCellDef="let element; let e = index"> {{ e + 1 }} </td>
+    </ng-container>
+    <ng-container matColumnDef="Nombre">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.nombreCategoria}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Descripcion">
+      <th mat-header-cell *matHeaderCellDef> Descripción </th>
+      <td mat-cell *matCellDef="let element"> {{element.descripcionCategoria}} </td>
+    </ng-container>
+    <!-- <ng-container matColumnDef="Opciones">
+      <th mat-header-cell *matHeaderCellDef> Opciones </th>
+      <td mat-cell *matCellDef="let element"> {{element.Opciones}} </td>
+    </ng-container> -->
+    <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
   </table>
 </div>

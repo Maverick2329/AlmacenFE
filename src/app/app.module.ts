@@ -1,7 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 // Rutas
 import { AppRoutingModule } from './app-routing.module';
@@ -43,7 +48,12 @@ import { JwtInterceptor } from './secutiry/jwt.interceptor';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    MatSidenavModule,
+    MatTableModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSnackBarModule
   ],
   providers: [
     AlmacenWSService,

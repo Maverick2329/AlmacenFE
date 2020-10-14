@@ -10,7 +10,7 @@ import { Categoria } from '../../models/categoria';
 export class CategoriaComponent implements OnInit {
 
   public lista: Categoria[];
-  public columnas: string[] = ['#', 'Nombre', 'Descripción', 'Opciones'];
+  public columnas: string[] = ['No', 'Nombre', 'Descripcion'];
   constructor(private Categoria: AlmacenWSService) {
     // this.Categoria.getCategoria().subscribe(data => {
     //   console.log(data);
@@ -25,5 +25,9 @@ export class CategoriaComponent implements OnInit {
     this.Categoria.getCategoria().subscribe(data => {
       this.lista = data.data;
     });
+  }
+
+  openAdd(){
+    console.log('Algo')
   }
 }
