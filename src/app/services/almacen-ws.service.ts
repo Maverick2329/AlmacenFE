@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Response } from '../models/response';
 import { Usuario } from '../models/usuario';
 import { map } from 'rxjs/operators';
+import { Categoria } from '../models/categoria';
 
 const httpOption = {
   headers: new HttpHeaders({
@@ -53,5 +54,9 @@ export class AlmacenWSService {
 
   getCategoria(): Observable<Response> {
    return this.http.get<Response>(this.url);
+  }
+
+  addCategoria(categoria: Categoria): Observable<Response>{
+    return this.http.post<Response>(this.url, categoria, httpOption);
   }
 }
