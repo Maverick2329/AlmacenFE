@@ -21,7 +21,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { DialogCategoriaComponent } from './components/dialog/dialog-categoria/dialog-categoria.component';
 import { DialogProductoComponent } from './components/dialog/dialog-producto/dialog-producto.component';
-
+import { DialogDeleteComponent } from '../app/common/delete/dialogdelete.component';
 
 // Peticiones
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -42,7 +42,8 @@ import { JwtInterceptor } from './secutiry/jwt.interceptor';
     HomeComponent,
     LoginComponent,
     DialogCategoriaComponent,
-    DialogProductoComponent
+    DialogProductoComponent,
+    DialogDeleteComponent
   ],
   imports: [
     BrowserModule,

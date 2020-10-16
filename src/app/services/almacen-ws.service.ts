@@ -59,4 +59,12 @@ export class AlmacenWSService {
   addCategoria(categoria: Categoria): Observable<Response>{
     return this.http.post<Response>(this.url, categoria, httpOption);
   }
+
+  editCategoria(categoria: Categoria): Observable<Response>{
+    return this.http.put<Response>(this.url, categoria, httpOption);
+  }
+
+  deleteCategoria(id: number): Observable<Response>{
+    return this.http.delete<Response>(`${this.url}/${id}`);
+  }
 }
