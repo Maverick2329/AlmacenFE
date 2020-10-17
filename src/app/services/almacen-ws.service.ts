@@ -5,6 +5,7 @@ import { Response } from '../models/response';
 import { Usuario } from '../models/usuario';
 import { map } from 'rxjs/operators';
 import { Categoria } from '../models/categoria';
+import { Login } from '../models/login';
 
 const httpOption = {
   headers: new HttpHeaders({
@@ -34,8 +35,8 @@ export class AlmacenWSService {
     this.usuario = this.usuarioSubject.asObservable();
   }
 
-  login(email: string, password: string): Observable<Response>{
-    return this.http.post<Response>(this.urlLogin, { email, password }, httpOption).pipe(
+  login(login: Login): Observable<Response>{
+    return this.http.post<Response>(this.urlLogin, login, httpOption).pipe(
       map(res => {
         if (res.exito === 1){
           const usuario: Usuario = res.data;
