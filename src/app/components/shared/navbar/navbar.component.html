@@ -17,6 +17,9 @@
         <li class="nav-item" routerLinkActive="active" *ngIf="usuario">
             <a class="nav-link" routerLink="producto">Producto</a>
         </li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="usuario">
+          <a class="nav-link" routerLink="venta">Venta</a>
+      </li>
         <li class="nav-item" *ngIf="usuario">
           <a class="nav-link" (click)="logout()" href="">Logout</a>
         </li>       

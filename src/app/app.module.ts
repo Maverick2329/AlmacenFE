@@ -23,6 +23,8 @@ import { LoginComponent } from './components/login/login.component';
 import { DialogCategoriaComponent } from './components/dialog/dialog-categoria/dialog-categoria.component';
 import { DialogProductoComponent } from './components/dialog/dialog-producto/dialog-producto.component';
 import { DialogDeleteComponent } from '../app/common/delete/dialogdelete.component';
+import { VentaComponent } from './venta/venta.component';
+import { DialogVentaComponent } from '../app/venta/dialog/dialogventa.component';
 
 // Peticiones
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -32,6 +34,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AlmacenWSService } from './services/almacen-ws.service';
 import { from } from 'rxjs';
 import { JwtInterceptor } from './secutiry/jwt.interceptor';
+
 
 
 @NgModule({
@@ -44,7 +47,9 @@ import { JwtInterceptor } from './secutiry/jwt.interceptor';
     LoginComponent,
     DialogCategoriaComponent,
     DialogProductoComponent,
-    DialogDeleteComponent
+    DialogDeleteComponent,
+    VentaComponent,
+    DialogVentaComponent
   ],
   imports: [
     BrowserModule,
